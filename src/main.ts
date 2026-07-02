@@ -20,7 +20,6 @@ if (started) {
 }
 
 const createWindow = () => {
-  // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: APP_CONFIG.width,
     height: APP_CONFIG.height,
