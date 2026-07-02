@@ -12,8 +12,8 @@ if (started) {
   app.quit();
 }
 
-const OVERLAY_TEXT = 'Update is ready. Restart to install it.';
-const OVERLAY_CLOSE_DELAY_MS = 10000;
+const OVERLAY_TEXT = 'Update is ready. It will be installed in the background';
+const OVERLAY_CLOSE_DELAY_MS = 12000;
 
 let mainWindow: BrowserWindow | null = null;
 
