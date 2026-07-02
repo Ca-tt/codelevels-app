@@ -8,12 +8,20 @@ import { createMenu } from './browser/menu'
 import { enableShortcuts } from './browser/hotkeys'
 import { APP_CONFIG } from './config/app'
 
+let updateCheckStarted = false;
 
-updateElectronApp({
-  repo: 'Ca-tt/codelevels-app',
-  updateInterval: '10 minutes',
-  notifyUser: true,
-});
+const startAutoUpdateCheck = () => {
+  if (updateCheckStarted) {
+    return;
+  }
+
+  updateCheckStarted = true;
+  updateElectronApp({
+    repo: 'Ca-tt/codelevels-app',
+    updateInterval: '30 minutes',
+    notifyUser: false,
+  });
+};
 
 if (started) {
   app.quit();
@@ -36,6 +44,7 @@ const createWindow = () => {
   Menu.setApplicationMenu(Menu.buildFromTemplate(createMenu(mainWindow)))
   // Menu.
   enableShortcuts(mainWindow)
+  startAutoUpdateCheck();
 
   if (APP_CONFIG.isConsoleOpened) {
     mainWindow.webContents.openDevTools();

@@ -1,9 +1,9 @@
-import type { BrowserWindow } from 'electron'
+import { app, dialog, type BrowserWindow } from 'electron'
 import { navigateWindow } from './hotkeys'
 
 import { APP_CONFIG } from '../config/app'
 
-export function createMenu(win: BrowserWindow) {
+export function createMenu(window: BrowserWindow) {
   return [
     {
       label: "Menu",
@@ -12,7 +12,7 @@ export function createMenu(win: BrowserWindow) {
           label: "Quit",
           accelerator: process.platform === 'darwin' ? 'Cmd+Q' : APP_CONFIG.hotkeys.close,
           click: () => {
-            win.close()
+            window.close()
           }
         }
       ]
@@ -23,14 +23,29 @@ export function createMenu(win: BrowserWindow) {
         {
           label: 'Back',
           accelerator: process.platform === 'darwin' ? 'Cmd+[' : 'Alt+Left',
-          click: () => navigateWindow(win, 'back')
+          click: () => navigateWindow(window, 'back')
         },
         {
           label: 'Forward',
           accelerator: process.platform === 'darwin' ? 'Cmd+]' : 'Alt+Right',
-          click: () => navigateWindow(win, 'forward')
+          click: () => navigateWindow(window, 'forward')
         }
       ]
-    }
+    },
+    {
+      label: 'About',
+      submenu: [
+        {
+          label: 'Version',
+          click: () => {
+            dialog.showMessageBox(window, {
+              title: 'About CodeLevels.net',
+              message: `${app.getName()}.net`,
+              detail: `App version: ${app.getVersion()}`
+            })
+          }
+        }
+      ]
+    },
   ]
 }
