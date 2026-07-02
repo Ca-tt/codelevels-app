@@ -15,6 +15,7 @@ const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
     icon: iconPath,
+    executableName: "CodeLevels",
   },
   rebuildConfig: {},
   makers: [
@@ -23,8 +24,16 @@ const config: ForgeConfig = {
       setupIcon: iconFile,
     }),
     new MakerZIP({}, ['darwin']),
-    new MakerRpm({}),
-    new MakerDeb({}),
+    new MakerRpm({
+      options:{
+        name: 'CodeLevels',
+      }
+    }),
+    new MakerDeb({
+      options:{
+        name: 'CodeLevels',
+      }
+    }),
   ],
   plugins: [
     new VitePlugin({

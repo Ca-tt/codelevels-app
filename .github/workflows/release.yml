@@ -3,14 +3,17 @@ name: Release
 on:
   push:
     tags:
-      - 'v*.*'
+      - 'v*.*.*'
 
 permissions:
   contents: write
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout
