@@ -8,12 +8,10 @@ on:
 permissions:
   contents: write
 
+
 jobs:
   publish:
-    strategy:
-      matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
 
     steps:
       - name: Checkout
