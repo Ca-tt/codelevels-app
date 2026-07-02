@@ -22,12 +22,12 @@ export function createMenu(window: BrowserWindow) {
       submenu: [
         {
           label: 'Back',
-          accelerator: process.platform === 'darwin' ? 'Cmd+[' : 'Alt+Left',
+          accelerator: process.platform === 'darwin' ? 'Cmd+[' : APP_CONFIG.hotkeys.back,
           click: () => navigateWindow(window, 'back')
         },
         {
           label: 'Forward',
-          accelerator: process.platform === 'darwin' ? 'Cmd+]' : 'Alt+Right',
+          accelerator: process.platform === 'darwin' ? 'Cmd+]' : APP_CONFIG.hotkeys.forward,
           click: () => navigateWindow(window, 'forward')
         }
       ]
@@ -59,9 +59,9 @@ export function createMenu(window: BrowserWindow) {
           label: 'Version',
           click: () => {
             dialog.showMessageBox(window, {
-              title: 'About CodeLevels.net',
-              message: `${app.getName()}.net`,
-              detail: `App version: ${app.getVersion()}`
+              title: 'CodeLevels.net desktop app',
+              message: `${app.getName()}.net desktop app`,
+              detail: `Current version: ${app.getVersion()}`
             })
           }
         }

@@ -22,6 +22,17 @@ export function toggleFullScreen(win: BrowserWindow) {
   win.setFullScreen(!win.isFullScreen())
 }
 
+function enableHotkey(
+  is_hotkey_available: boolean,
+  event: { preventDefault: () => void },
+  action: () => void
+) {
+  if (is_hotkey_available) {
+    event.preventDefault()
+    action()
+  }
+}
+
 export function enableShortcuts(win: BrowserWindow) {
   win.webContents.on('before-input-event', (event, input) => {
     const isBackShortcut =
@@ -37,34 +48,11 @@ export function enableShortcuts(win: BrowserWindow) {
     const isFullScreenShortcut = input.alt && input.key.toLowerCase() === 'f'
     const isMobileShortcut = input.alt && input.key.toLowerCase() === 'm'
 
-    if (isBackShortcut) {
-      event.preventDefault()
-      navigateWindow(win, 'back')
-    }
-
-    else if (isForwardShortcut) {
-      event.preventDefault()
-      navigateWindow(win, 'forward')
-    }
-    
-    else if (isReloadShortcut) {
-      event.preventDefault()
-      win.webContents.reload()
-    }
-
-    else if (isCloseShortcut) {
-      event.preventDefault()
-      win.close()
-    }
-
-    else if (isFullScreenShortcut) {
-      event.preventDefault()
-      toggleFullScreen(win)
-    }
-
-    else if (isMobileShortcut) {
-      event.preventDefault()
-      resizeWindow(win, APP_CONFIG.mobileWidth, APP_CONFIG.mobileHeight)
-    }
+    enableHotkey(isBackShortcut, event, () => navigateWindow(win, 'back'))
+    enableHotkey(isForwardShortcut, event, () => navigateWindow(win, 'forward'))
+    enableHotkey(isReloadShortcut, event, () => win.webContents.reload())
+    enableHotkey(isCloseShortcut, event, () => win.close())
+    enableHotkey(isFullScreenShortcut, event, () => toggleFullScreen(win))
+    enableHotkey(isMobileShortcut, event, () => resizeWindow(win, APP_CONFIG.mobileWidth, APP_CONFIG.mobileHeight))
   })
 }
