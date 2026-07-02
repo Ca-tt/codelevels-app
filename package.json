@@ -1,7 +1,7 @@
 {
   "name": "codelevels-app-ts",
   "productName": "CodeLevels",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "The desktop application for CodeLevels.net",
   "main": ".vite/build/main.js",
   "private": true,
