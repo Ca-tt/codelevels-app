@@ -14,7 +14,8 @@ tag:
 	npm version $(v) && git tag -a v$(v) -m "Release v$(v)"
 
 release:
-	git add . && git commit  && npm version $(v) && git push origin master --follow-tags
+	export GITHUB_TOKEN="$(GITHUB_TOKEN)" || { echo "Set GITHUB_TOKEN or GH_TOKEN before publishing."; exit 1; }
+	git add . && git commit -m "Release v$(v)" && npm version $(v) && npm run publish && git push origin master --follow-tags
 
 save:
 	git add . && git commit 
