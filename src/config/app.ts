@@ -22,6 +22,11 @@ export const APP_CONFIG = {
         url: 'https://codelevels.net/projects/',
         title: 'CodeLevels'
     },
+
+    updateMessage:{
+        text: 'Update is ready. It will be installed in the background',
+        closeDelay: 15000
+    }
 }
 
 export default APP_CONFIG

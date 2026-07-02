@@ -1,6 +1,7 @@
 import { updateElectronApp } from 'update-electron-app';
 
 const UPDATE_REPOSITORY = 'Ca-tt/codelevels-app';
+
 let updateCheckStarted = false;
 
 export const startAutoUpdateCheck = () => {
