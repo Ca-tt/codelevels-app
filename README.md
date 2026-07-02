@@ -40,8 +40,6 @@ If you prefer, build the app from source following the repository instructions i
 
 ## VirusTotal scan results
 
-VirusTotal may also flag the app. We scanned the release on (add date here) — the report showed no malicious detections at that time. View the full VirusTotal report here: (insert VirusTotal report link).
-
-For reproducibility, include the scanned release's SHA256 checksum and the scan date on the GitHub release page so others can verify the same files.
+VirusTotal may also flag the app. We scanned the released app — the report showed just one tiny warning from a single antivirus engine, which is likely a false positive:
 
 ![Virus Total Scan results](./static/img/virus-protection/virus-total-results-14104.png)

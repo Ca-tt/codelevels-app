@@ -1,5 +1,5 @@
 import { app, dialog, type BrowserWindow } from 'electron'
-import { navigateWindow } from './hotkeys'
+import { navigateWindow, resizeWindow, toggleFullScreen } from './hotkeys'
 
 import { APP_CONFIG } from '../config/app'
 
@@ -30,6 +30,21 @@ export function createMenu(window: BrowserWindow) {
           accelerator: process.platform === 'darwin' ? 'Cmd+]' : 'Alt+Right',
           click: () => navigateWindow(window, 'forward')
         }
+      ]
+    },
+    {
+      label: 'View',
+      submenu: [
+        {
+          label: 'Toggle Full Screen',
+          accelerator: APP_CONFIG.hotkeys.fullscreen,
+          click: () => toggleFullScreen(window)
+        },
+        {
+          label: 'Reading Mode',
+          accelerator: APP_CONFIG.hotkeys.mobile,
+          click: () => resizeWindow(window, APP_CONFIG.mobileWidth, APP_CONFIG.mobileHeight)
+        },
       ]
     },
     {
