@@ -13,8 +13,8 @@ version:
 tag:
 	npm version $(v) && git tag -a v$(v) -m "Release v$(v)"
 
-push-release:
-	git push origin master --follow-tags
+release:
+	git add . && git commit  && npm version $(v) && git push origin master --follow-tags
 
 save:
 	git add . && git commit 

@@ -71,7 +71,7 @@ const config: ForgeConfig = {
           name: 'codelevels-app'
         },
         prerelease: false,
-        draft: true,
+        draft: false,
         generateReleaseNotes: true,
         authToken: process.env.GITHUB_TOKEN || process.env.GH_TOKEN
       }
