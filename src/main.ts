@@ -28,9 +28,13 @@ const createWindow = () => {
     },
   });
 
+  mainWindow.setAutoHideMenuBar(true);
+  mainWindow.setMenuBarVisibility(false);
+
   mainWindow.loadURL(APP_CONFIG.website.url);
 
   Menu.setApplicationMenu(Menu.buildFromTemplate(createMenu(mainWindow)))
+  // Menu.
   enableShortcuts(mainWindow)
 
   if (APP_CONFIG.isConsoleOpened) {

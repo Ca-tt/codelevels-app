@@ -4,15 +4,7 @@ run:
 build:
 	npm run make
 
-publish:
-	npm run publish
-
-version:
-	npm version $(v)
-
-tag:
-	npm version $(v) && git tag -a v$(v) -m "Release v$(v)"
-
+# example: make release v=1.0.0
 release:
 	@if [ -f .env ]; then set -a; . ./.env; set +a; fi; \
 	if [ -z "$${GITHUB_TOKEN}" ]; then echo "Set GITHUB_TOKEN before publishing."; exit 1; fi; \
