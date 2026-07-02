@@ -41,6 +41,11 @@ export function createMenu(window: BrowserWindow) {
           click: () => toggleFullScreen(window)
         },
         {
+          label: 'Normal Size',
+          accelerator: APP_CONFIG.hotkeys.defaultSize,
+          click: () => resizeWindow(window, APP_CONFIG.width, APP_CONFIG.height)
+        },
+        {
           label: 'Reading Mode',
           accelerator: APP_CONFIG.hotkeys.mobile,
           click: () => resizeWindow(window, APP_CONFIG.mobileWidth, APP_CONFIG.mobileHeight)

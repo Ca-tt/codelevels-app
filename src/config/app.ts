@@ -6,7 +6,7 @@ export const APP_CONFIG = {
     height: 750,
 
     /* mobile */
-    mobileWidth: 550,
+    mobileWidth: 500,
     mobileHeight: 850,
 
     hotkeys: {
@@ -14,7 +14,7 @@ export const APP_CONFIG = {
         forward: process.platform === 'darwin' ? 'Cmd+]' : 'Alt+Right',
         close: process.platform === 'darwin' ? 'Cmd+W' : 'Ctrl+W',
         fullscreen: process.platform === 'darwin' ? 'Option+F' : 'Alt+F',
-        mobile: process.platform === 'darwin' ? 'Option+M' : 'Alt+M',
+        mobile: process.platform === 'darwin' ? 'Option+M' : 'Alt+R',
         defaultSize: process.platform === 'darwin' ? 'Option+D' : 'Alt+D'
     },
 
