@@ -1,3 +1,4 @@
+import path from 'path';
 import type { ForgeConfig } from '@electron-forge/shared-types';
 import { MakerSquirrel } from '@electron-forge/maker-squirrel';
 import { MakerZIP } from '@electron-forge/maker-zip';
@@ -7,13 +8,20 @@ import { VitePlugin } from '@electron-forge/plugin-vite';
 import { FusesPlugin } from '@electron-forge/plugin-fuses';
 import { FuseV1Options, FuseVersion } from '@electron/fuses';
 
+const iconPath = path.resolve(__dirname, 'assets', 'icon');
+const iconFile = path.resolve(__dirname, 'assets', 'icon.ico');
+
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
+    icon: iconPath,
   },
   rebuildConfig: {},
   makers: [
-    new MakerSquirrel({}),
+    new MakerSquirrel({
+      iconUrl: iconFile,
+      setupIcon: iconFile,
+    }),
     new MakerZIP({}, ['darwin']),
     new MakerRpm({}),
     new MakerDeb({}),
@@ -54,6 +62,21 @@ const config: ForgeConfig = {
       [FuseV1Options.OnlyLoadAppFromAsar]: true,
     }),
   ],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'Ca-tt',
+          name: 'codelevels-app'
+        },
+        prerelease: false,
+        draft: true,
+        generateReleaseNotes: true,
+        authToken: process.env.GITHUB_TOKEN || process.env.GH_TOKEN
+      }
+    }
+  ]
 };
 
 export default config;

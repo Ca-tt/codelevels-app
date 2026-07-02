@@ -1,7 +1,7 @@
 export const APP_CONFIG = {
     isConsoleOpened: false,
 
-    width: 1300,
+    width: 1400,
     height: 800,
 
     hotkeys: {

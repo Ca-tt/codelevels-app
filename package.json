@@ -1,10 +1,14 @@
 {
   "name": "codelevels-app-ts",
-  "productName": "codelevels-app-ts",
-  "version": "1.0.0",
-  "description": "My Electron application description",
+  "productName": "CodeLevels",
+  "version": "1.0",
+  "description": "The desktop application for CodeLevels.net",
   "main": ".vite/build/main.js",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ca-tt/codelevels-app.git"
+  },
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -39,6 +43,7 @@
     "vite": "^5.4.21"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
+    "electron-squirrel-startup": "^1.0.1",
+    "update-electron-app": "^3.3.0"
   }
 }
