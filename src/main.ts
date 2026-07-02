@@ -30,13 +30,6 @@ const createWindow = () => {
 
   mainWindow.loadURL(APP_CONFIG.website.url);
 
-  // mainWindow.on('resize', () => {
-  //   const { width, height } = mainWindow.getBounds()
-  //   console.log('Window resized')
-  //   console.log('width:', width, 'height:', height)
-  // })
-
-
   Menu.setApplicationMenu(Menu.buildFromTemplate(createMenu(mainWindow)))
   enableShortcuts(mainWindow)
 
