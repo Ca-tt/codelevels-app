@@ -1,8 +1,8 @@
 export const APP_CONFIG = {
     isConsoleOpened: false,
 
-    width: 1400,
-    height: 800,
+    width: 1300,
+    height: 750,
 
     hotkeys: {
         back: process.platform === 'darwin' ? 'Cmd+[' : 'Alt+Left',
