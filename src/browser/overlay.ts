@@ -63,7 +63,7 @@ function showOverlayText(window: BrowserWindow) {
       const closeButton = document.createElement('button');
       closeButton.className = 'electron-top-banner__close';
       closeButton.type = 'button';
-      closeButton.textContent = 'Close';
+      closeButton.textContent = ${JSON.stringify(APP_CONFIG.updateMessage.buttonText)};
       closeButton.addEventListener('click', () => {
         banner.remove();
         style.remove();

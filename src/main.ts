@@ -10,6 +10,7 @@ import { startAutoUpdateCheck } from './app/update'
 
 import { showOverlayText } from './browser/overlay'
 
+
 if (started) {
   app.quit();
 }
@@ -59,6 +60,10 @@ const createWindow = () => {
   if (APP_CONFIG.isConsoleOpened) {
     mainWindow.webContents.openDevTools();
   }
+  
+  // if (APP_CONFIG.isDevelopment) {
+  //   showOverlayText(mainWindow)
+  // }
 };
 
 autoUpdater.on('update-downloaded', () => {

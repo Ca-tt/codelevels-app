@@ -18,10 +18,3 @@ export const startAutoUpdateCheck = () => {
   });
 };
 
-// export const triggerManualUpdateCheck = () => {
-//   updateElectronApp({
-//     repo: UPDATE_REPOSITORY,
-//     updateInterval: '120 minutes',
-//     notifyUser: true,
-//   });
-// };

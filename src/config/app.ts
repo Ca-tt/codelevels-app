@@ -1,3 +1,5 @@
+import { app } from 'electron';
+
 export const APP_CONFIG = {
     isConsoleOpened: false,
 
@@ -23,10 +25,13 @@ export const APP_CONFIG = {
         title: 'CodeLevels'
     },
 
-    updateMessage:{
+    updateMessage: {
         text: 'Update is ready. It will be installed in the background',
-        closeDelay: 15000
-    }
+        closeDelay: 20000,
+        buttonText: 'Okay',
+    },
+
+    isDevelopment: !app.isPackaged,
 }
 
 export default APP_CONFIG
