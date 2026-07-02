@@ -12,15 +12,15 @@ export const startAutoUpdateCheck = () => {
 
   updateElectronApp({
     repo: UPDATE_REPOSITORY,
-    updateInterval: '30 minutes',
+    updateInterval: '120 minutes',
     notifyUser: false,
   });
 };
 
-export const triggerManualUpdateCheck = () => {
-  updateElectronApp({
-    repo: UPDATE_REPOSITORY,
-    updateInterval: '120 minutes',
-    notifyUser: true,
-  });
-};
+// export const triggerManualUpdateCheck = () => {
+//   updateElectronApp({
+//     repo: UPDATE_REPOSITORY,
+//     updateInterval: '120 minutes',
+//     notifyUser: true,
+//   });
+// };

@@ -1,6 +1,6 @@
 import { app, dialog, type BrowserWindow } from 'electron'
 import { navigateWindow, resizeWindow, toggleFullScreen } from './hotkeys'
-import { triggerManualUpdateCheck } from '../app/update'
+// import { triggerManualUpdateCheck } from '../app/update'
 
 import { APP_CONFIG } from '../config/app'
 
@@ -9,10 +9,10 @@ export function createMenu(window: BrowserWindow) {
     {
       label: "Menu",
       submenu: [
-        {
-          label: 'Update',
-          click: () => triggerManualUpdateCheck()
-        },
+        // {
+        //   label: 'Update',
+        //   click: () => triggerManualUpdateCheck()
+        // },
         {
           label: "Quit",
           accelerator: process.platform === 'darwin' ? 'Cmd+Q' : APP_CONFIG.hotkeys.close,
